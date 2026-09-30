@@ -216,3 +216,20 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Data files
+data/*.csv
+data/*.tsv
+data/*.txt
+data/raw/
+
+# Saved models
+*.pkl
+*.joblib
+
+# Environment / secrets
+.env
+
+# OS files
+.DS_Store
+Thumbs.db
