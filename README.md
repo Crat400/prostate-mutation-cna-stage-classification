@@ -1,9 +1,9 @@
 # Prostate Mutation CNA Stage Classification
 
 ## Overview
-Machine learning project using the MSK 2024 prostate cancer cohort to classify Stage 1–3 vs Stage 4 disease. Compares somatic mutations, copy-number alterations (CNAs), and combined genomic features across multiple models to evaluate their relative predictive value for advanced prostate cancer.
+Machine learning project using the MSK 2024 prostate cancer cohort to classify Stage 1-3 vs Stage 4 disease. Compares somatic mutations, copy-number alterations (CNAs), and combined genomic features across multiple models to evaluate their relative predictive value for advanced prostate cancer.
 
-This project investigates whether genomic alteration profiles can distinguish Stage 4 prostate cancer from Stage 1–3 disease using machine learning.
+This project investigates whether genomic alteration profiles can distinguish Stage 4 prostate cancer from Stage 1-3 disease using machine learning.
 
 We will compare three genomic feature sets:
 
@@ -21,14 +21,14 @@ The cohort contains genomic and clinical data from approximately 2,260 prostate 
 
 For the primary analysis:
 
-- Stage 1–3: 943 samples
+- Stage 1-3: 943 samples
 - Stage 4: 1,024 samples
 
 Samples with unknown or unavailable stage will be excluded.
 
 ## Problem
 
-The goal is to determine whether genomic alteration patterns can distinguish Stage 4 from Stage 1–3 prostate cancer, and whether combining mutations and CNAs improves classification performance.
+The goal is to determine whether genomic alteration patterns can distinguish Stage 4 from Stage 1-3 prostate cancer, and whether combining mutations and CNAs improves classification performance.
 
 ## Why It Matters
 
@@ -39,7 +39,7 @@ Advanced prostate cancer is associated with genomic changes that may differ from
 **Binary classification**
 
 **Input:** Somatic mutations, CNAs, or combined genomic features  
-**Target:** Stage 1–3 vs Stage 4 prostate cancer
+**Target:** Stage 1-3 vs Stage 4 prostate cancer
 
 ## Planned Models
 
