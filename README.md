@@ -55,7 +55,7 @@ The project uses data obtained from the cBioPortal Public Datahub. The underlyin
 
 ## CRediT Contributions
 
-**Huibin Benny Ji:** Model lead  
-**Mehdi Haghi:** Data lead
-**Sachsin Sinnathurai:** Writing lead
-**Parvinder Ahlawat:** Interface lead
+**Huibin Benny Ji (Crat400):** Model lead  
+**Mehdi Haghi (mehdihaghi11-dev):** Data lead  
+**Sachsin Sinnathurai (SachsinSinnathurai):** Writing lead  
+**Parvinder Ahlawat (ParvinderAhlawat92):** Interface lead  
