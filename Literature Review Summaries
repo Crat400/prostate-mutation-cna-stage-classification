@@ -1,0 +1,15 @@
+Article 1: Biologically informed deep neural network for prostate cancer discovery by Elmarakeby et al., published in Nature in 2021.
+
+Objective: The researchers developed P-NET, a biologically informed deep-learning model to classify prostate cancer disease states and identify genomic alterations associated with advanced, treatment-resistant disease.
+
+Dataset and inputs: The study included 1,013 prostate cancer cases (680 primary cancers and 333 castration-resistant prostate cancers). The model used somatic mutations and copy-number alterations (CNA).
+
+Methods: P-NET was trained using an 80% training, 10% validation and 10% testing split. Its performance was compared with conventional machine-learning models, including logistic regression, support vector machines and decision trees.
+
+Main findings: P-NET achieved an AUC of 0.93, AUPRC of 0.88 and accuracy of 0.83 on the test set. The model also identified important genomic alterations and pathways associated with advanced disease. CNA features were more informative than mutations in this particular analysis.
+
+Relevance to our project: This paper supports the use of somatic mutations and CNA for prostate cancer classification. It also provides an example of model comparison, external validation and model interpretability.
+
+Important difference: The paper classified primary versus metastatic/castration-resistant disease, whereas our proposed project aims to predict Stage 1–3 versus Stage 4. Therefore, our target and dataset need to be evaluated separately.
+
+Reference: Elmarakeby HA et al. Biologically informed deep neural network for prostate cancer discovery. Nature. 2021;598:348–352. https://doi.org/10.1038/s41586-021-03922-4
