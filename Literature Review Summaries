@@ -143,3 +143,162 @@ The study used DNA methylation and clinical phenotype data rather than somatic m
 Reference
 
 Mulia A, Agustriawan D, Overbeek M, et al. Artificial Intelligence Design for Race-Based Prostate Cancer Stage Classification With Multilayer Perceptron: Feature Selection Optimization Approach. JMIR Formative Research. 2026;10. https://doi.org/10.2196/82587
+
+Article 6: Microsatellite Instability, Tumor Mutational Burden, and Response to Immune Checkpoint Blockade in Patients with Prostate Cancer
+
+Authors: Lenis et al.
+Journal: Clinical Cancer Research, 2024
+Link: https://doi.org/10.1158/1078-0432.CCR-23-3403
+
+Objective
+The authors characterized hypermutated and high-mutational-burden tumors across the MSK prostate cancer cohort to evaluate their clinical presentation and immunotherapy response.
+
+Dataset and Inputs
+The study analyzed 3,244 tumor samples across 2,257 prostate cancer patients sequenced with the MSK-IMPACT targeted capture panel, covering between 468 and 505 cancer-related genes.
+
+Methods
+The researchers quantified tumor mutational burden and microsatellite instability scores from targeted sequencing data, comparing survival and treatment outcomes across genomic subtypes.
+
+Main Findings
+Only about 4.3% of prostate cancer patients showed hypermutated features like MSI-High or high mutational burden. For the remaining 95% of the cohort, mutation rates were low (under 4 mutations per megabase), and point mutation frequencies were very similar between localized tumors and metastatic cases.
+
+Relevance to Our Project
+This is the primary study describing our exact cBioPortal dataset (prostate_msk_2024). It provides our biological justification for why point mutations alone are too sparse to separate Stage 4 from earlier stages, and why incorporating copy number alterations is necessary.
+
+Note
+The paper focuses on immunotherapy outcomes, whereas our project uses the baseline genomic alterations from the cohort for clinical stage classification.
+
+Reference
+Lenis AT, Ravichandran V, Brown S, et al. Microsatellite instability, tumor mutational burden, and response to immune checkpoint blockade in patients with prostate cancer. Clinical Cancer Research. 2024;30(17):3894–3903. https://doi.org/10.1158/1078-0432.CCR-23-3403
+
+Article 7: Genomic Correlates of Clinical Outcome in Advanced Prostate Cancer
+
+Authors: Abida et al.
+Journal: Proceedings of the National Academy of Sciences (PNAS), 2019
+Link: https://doi.org/10.1073/pnas.1902651116
+
+Objective
+The researchers investigated the genomic alterations that define advanced, metastatic prostate cancer and evaluated how specific gene losses impact disease progression.
+
+Dataset and Inputs
+The cohort included 444 metastatic tumor samples from 429 patients with castration-resistant prostate cancer, profiled using targeted and whole-exome sequencing.
+
+Methods
+The study tracked alteration frequencies across common oncogenic pathways and used survival analysis to correlate individual gene deletions and co-deletions with clinical resistance and survival times.
+
+Main Findings
+Advanced metastatic disease was characterized by frequent structural deletions in key tumor suppressors, including TP53 in 53%, PTEN in 32%, and RB1 in 21% of cases, along with AR amplifications in 63%. Combined homozygous deletions across multiple tumor suppressors, particularly PTEN and RB1 together, identified an aggressive subset with very poor outcomes.
+
+Relevance to Our Project
+This paper explains the biology behind our copy number features. It shows that Stage 4 disease is driven by the physical deletion of tumor suppressors rather than extra point mutations, supporting our plan to test tree models that can capture combinations of gene losses.
+
+Limitation
+The dataset focused on metastatic castration-resistant disease rather than untreated Stage 4 disease at initial diagnosis.
+
+Reference
+Abida W, Cyrta J, Heller G, et al. Genomic correlates of clinical outcome in advanced prostate cancer. Proceedings of the National Academy of Sciences. 2019;116(23):11428–11436. https://doi.org/10.1073/pnas.1902651116
+
+Article 8: Machine Learning for Genetics-Based Classification and Treatment Response Prediction in Cancer of Unknown Primary
+
+Authors: Moon et al.
+Journal: Nature Medicine, 2023
+Link: https://doi.org/10.1038/s41591-023-02482-6
+
+Objective
+The authors developed a machine learning framework called OncoNPC to predict primary tumor sites and metastatic phenotypes using targeted panel sequencing.
+
+Dataset and Inputs
+The study trained on 36,445 tumor samples from cancer centers using MSK-IMPACT and OncoPanel datasets, combining point mutations and discrete copy number calls across 300 to 505 genes.
+
+Methods
+The researchers trained an extreme gradient boosting (XGBoost) classifier using nested cross-validation and ran feature ablation experiments to measure the relative value of mutations versus copy number features.
+
+Main Findings
+The model achieved an overall AUROC of 0.942 across tumor types, with high precision and recall in prostate cancer. Ablation experiments showed that adding copy number alterations was essential for accurate classification, and gradient-boosted trees handled the sparse tabular panel data without overfitting.
+
+Relevance to Our Project
+This study proves that tree-based algorithms work well on targeted panel sequencing like MSK-IMPACT. It supports our plan to combine mutation flags with CNA calls in a tabular format.
+
+Important Difference
+The model predicted multiclass cancer types rather than binary disease stages within prostate cancer.
+
+Reference
+Moon I, LoPiccolo J, Baca SC, et al. Machine learning for genetics-based classification and treatment response prediction in cancer of unknown primary. Nature Medicine. 2023;29(8):2057–2067. https://doi.org/10.1038/s41591-023-02482-6
+
+Article 9: Aneuploidy Drives Lethal Progression in Prostate Cancer
+
+Authors: Stopsack et al.
+Journal: Proceedings of the National Academy of Sciences (PNAS), 2019
+Link: https://doi.org/10.1073/pnas.1902645116
+
+Objective
+The authors evaluated whether overall copy number alteration burden and chromosome arm-level aneuploidy predict lethal metastatic progression in men with prostate cancer.
+
+Dataset and Inputs
+The study analyzed primary prostate cancer specimens from long-term prospective cohorts, measuring the number of altered chromosome arms and the Fraction of Genome Altered (FGA).
+
+Methods
+Cox proportional hazards models and survival analyses were used to test whether arm-level copy number alterations predicted metastasis and death, adjusting for standard clinical variables like PSA and Gleason score.
+
+Main Findings
+Total copy number alteration burden independently predicted lethal progression. Men with tumors in the highest quartile of chromosome arm alterations had a five-fold higher risk of metastatic death compared to those with stable genomes.
+
+Relevance to Our Project
+This paper reinforces why copy number alterations are a stronger predictor of metastatic Stage 4 disease than point mutations. It shows that chromosomal instability directly correlates with aggressive spread.
+
+Limitation
+The study tracked long-term progression over time rather than evaluating a direct cross-sectional stage classification task.
+
+Reference
+Stopsack KH, Whittaker CA, Gerke TA, et al. Aneuploidy drives lethal progression in prostate cancer. Proceedings of the National Academy of Sciences. 2019;116(23):11390–11395. https://doi.org/10.1073/pnas.1902645116
+
+Article 10: CPEM: Accurate Cancer Type Classification Based on Somatic Alterations Using an Ensemble of a Random Forest and a Deep Neural Network
+
+Authors: Lee et al.
+Journal: Scientific Reports, 2019
+Link: https://doi.org/10.1038/s41598-019-53092-8
+
+Objective
+The researchers compared the classification performance of somatic point mutations against copy number alterations to determine how much combining both modalities improves model accuracy.
+
+Dataset and Inputs
+The study evaluated genomic profiles from 31 cancer types in TCGA, building separate input matrices for somatic mutations alone, copy number alterations alone, and a combined feature set.
+
+Methods
+The authors evaluated Random Forests, deep neural networks, and ensemble models across each feature representation and compared performance metrics across datasets.
+
+Main Findings
+Models trained solely on point mutations achieved 58.5% classification accuracy. Adding copy number alterations boosted accuracy to 72.7%, representing a 14.2% absolute gain, while an ensemble of Random Forests and deep neural networks reached 84.1%.
+
+Relevance to Our Project
+This paper mirrors our exact project setup: comparing mutation-only, CNA-only, and combined models. It provides published evidence that mutations alone are often insufficient, and that copy number data fills in critical predictive signal.
+
+Important Difference
+The study focused on pan-cancer tissue-of-origin classification rather than prostate cancer staging.
+
+Reference
+Lee K, Park Y, Choi HJ, Lee D. CPEM: accurate cancer type classification based on somatic alterations using an ensemble of a random forest and a deep neural network. Scientific Reports. 2019;9:16584. https://doi.org/10.1038/s41598-019-53092-8
+
+Article 11: Why Do Tree-Based Models Still Outperform Deep Learning on Tabular Data?
+
+Authors: Grinsztajn et al.
+Journal: Advances in Neural Information Processing Systems (NeurIPS), 2022
+Link: https://arxiv.org/abs/2207.08815
+
+Objective
+The authors ran a large empirical benchmark to evaluate why tree-based models like Random Forest and XGBoost consistently outperform deep learning architectures on tabular datasets.
+
+Dataset and Inputs
+The benchmark evaluated 45 open tabular datasets spanning different sample sizes, feature distributions, and tasks.
+
+Methods
+The authors systematically compared tree ensembles against neural architectures including Multi-Layer Perceptrons (MLPs), TabNet, and FT-Transformers under standardized hyperparameter tuning.
+
+Main Findings
+Tree-based models consistently outperformed deep learning architectures on tabular data. The authors showed that neural networks have inductive biases suited for smooth functions, making them struggle with the irregular decision boundaries and uninformative features that commonly occur in tabular data.
+
+Relevance to Our Project
+This benchmark directly supports our model design choices for Section 5.1 of the course specification. It gives us a solid, published rationale for why our classical tree models might perform as well as or better than a neural network on our tabular genomic matrices, which the course rules explicitly recognize as a valid finding.
+
+Reference
+Grinsztajn L, Oyallon E, Varoquaux G. Why do tree-based models still outperform deep learning on tabular data? Advances in Neural Information Processing Systems. 2022;35:507–520. https://arxiv.org/abs/2207.08815
