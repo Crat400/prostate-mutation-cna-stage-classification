@@ -302,3 +302,160 @@ This benchmark directly supports our model design choices for Section 5.1 of the
 
 Reference
 Grinsztajn L, Oyallon E, Varoquaux G. Why do tree-based models still outperform deep learning on tabular data? Advances in Neural Information Processing Systems. 2022;35:507–520. https://arxiv.org/abs/2207.08815
+
+
+Article 1: Biologically Informed Deep Neural Network for Prostate Cancer Discovery
+Publication: Nature, 2021. 
+
+
+
+Objective
+The study aimed to develop a biologically informed deep-learning model to identify molecular features associated with aggressive prostate cancer and treatment resistance. The researchers developed P-NET, a neural network designed to incorporate biological knowledge into its architecture. Unlike a conventional black-box model, P-NET was also designed to help identify molecular pathways and genomic alterations that contribute to its predictions.
+Dataset and Inputs
+The researchers used publicly available prostate cancer genomic datasets, including information on somatic mutations and copy-number alterations (CNAs). The study examined primary prostate cancer and castration-resistant prostate cancer to investigate molecular differences associated with disease progression and treatment resistance.
+Methods
+The researchers developed P-NET using a neural-network architecture informed by biological pathways. The model was designed to predict treatment-resistance states and identify important molecular drivers. The researchers also investigated model interpretability to understand which genes and pathways contributed to the predictions.
+Main Findings
+The study demonstrated how biologically informed deep learning could be used to investigate prostate cancer genomic data and identify molecular features associated with treatment resistance. It also illustrated how an interpretable model can provide biological insights in addition to predictive results.
+Relevance to Our Project
+This paper is relevant because it demonstrates the potential value of genomic features in prostate cancer modelling. It supports investigating somatic mutations and CNAs as predictive inputs and highlights the importance of model interpretability. Its approach also provides a useful example of how biological knowledge can guide machine-learning development.
+Limitation
+The study focused on treatment-resistance states and molecular drivers rather than directly classifying Stage 1–3 versus Stage 4 disease. Its biological neural-network architecture is also more complex than the baseline models that may be appropriate for our project. Therefore, its findings motivate our research but do not establish which feature set will perform best for our classification task.
+Reference
+Elmarakeby HA, et al. Biologically informed deep neural network for prostate cancer discovery. Nature. 2021;598:348–352. https://doi.org/10.1038/s41586-021-03922-4
+
+
+Article 2: A DNA Copy Number Alteration Classifier as a Prognostic Tool for Prostate Cancer Patients
+Publication: British Journal of Cancer, 2023.
+
+
+
+Objective
+
+The researchers aimed to develop a classifier based on DNA copy-number alterations to predict biochemical recurrence in prostate cancer patients. Biochemical recurrence refers to a rise in prostate-specific antigen (PSA) levels after treatment that may indicate the return of cancer activity. The study addressed the need for improved methods to distinguish patients with relatively indolent disease from those at greater risk of recurrence.
+
+Dataset and Inputs
+
+The study examined 448 prostate cancer tumours from patients with low- or intermediate-risk disease who underwent radical prostatectomy. The researchers assessed CNAs in 14 genes using multiplex ligation-dependent probe amplification (MLPA), a laboratory technique used to measure changes in DNA copy number.
+
+Methods
+
+The researchers used Random Survival Forest for feature selection and Cox proportional hazards regression to develop a six-gene CNA classifier. They assessed the association between the classifier and biochemical recurrence while accounting for established clinicopathological factors. They also evaluated the classifier in independent patient cohorts.
+
+Main Findings
+
+The six-gene classifier was significantly associated with biochemical recurrence, including after adjustment for standard clinicopathological variables. The study reported that the CNA-based score provided additional prognostic information beyond established risk indicators. External validation supported further investigation of CNA-based prognostic tools.
+
+Relevance to Our Project
+
+This paper directly supports investigating CNAs as a separate feature set in our project. It shows that selected copy-number changes can contain clinically relevant information about prostate cancer outcomes. Comparing a CNA-only model with a mutation-only model and a combined model could help determine whether CNAs provide useful predictive information for our specific classification task.
+
+Limitation
+
+The study predicted biochemical recurrence rather than cancer stage. Its patients also had low- or intermediate-risk disease, so its results cannot be directly transferred to a Stage 1–3 versus Stage 4 classification problem. The study supports the potential value of CNAs but does not prove that they will be the strongest predictors of advanced-stage disease.
+
+Reference
+
+Ebrahimizadeh W, et al. A DNA copy number alteration classifier as a prognostic tool for prostate cancer patients. British Journal of Cancer. 2023;128:2165–2174. https://doi.org/10.1038/s41416-023-02236-8
+
+
+
+Article 3: A Machine Learning Framework Develops a DNA Replication Stress Model for Predicting Clinical Outcomes and Therapeutic Vulnerability in Primary Prostate Cancer
+Publication: Journal of Translational Medicine, 2023.
+
+
+Objective
+
+The researchers aimed to develop a machine-learning framework to investigate DNA replication stress in primary prostate cancer and its association with clinical outcomes and potential therapeutic vulnerabilities. DNA replication stress occurs when the process of copying DNA is disrupted, which can contribute to genomic instability and cancer progression.
+
+Dataset and Inputs
+
+The study used prostate cancer patient cohorts to examine replication-stress-related molecular features and clinical outcomes. The analysis included multiple cohorts to investigate whether the developed signature could provide useful information beyond a single dataset. The molecular inputs were primarily related to gene expression and DNA replication-stress biology rather than the direct mutation and CNA feature sets proposed for our project.
+
+Methods
+
+The researchers applied feature-selection procedures and compared multiple machine-learning algorithms to develop a replication-stress signature. They evaluated model performance using cross-validation and independent cohorts. The study also examined the relationships between the resulting signature, clinical outcomes, and potential treatment vulnerabilities.
+
+Main Findings
+
+The study reported that its replication-stress signature was associated with prostate cancer clinical outcomes, including biochemical recurrence. Its use of multiple cohorts provided evidence about the reproducibility of the findings across datasets. The analysis also suggested that replication-stress biology may help identify differences in tumour behaviour and potential therapeutic vulnerabilities.
+
+Relevance to Our Project
+
+This paper is useful for understanding how molecular features can be translated into predictive models. It highlights the importance of comparing candidate algorithms, selecting features carefully, and validating performance across independent datasets. These principles are relevant to our plan to compare mutation-only, CNA-only, and combined genomic models.
+
+Limitation
+
+The study investigated replication-stress-related molecular features and clinical outcomes rather than directly classifying Stage 1–3 versus Stage 4 using somatic mutations and CNAs. Therefore, its findings support the general modelling strategy but do not directly establish the predictive value of our proposed feature sets.
+
+Reference
+
+Huang RH, et al. A machine learning framework develops a DNA replication stress model for predicting clinical outcomes and therapeutic vulnerability in primary prostate cancer. Journal of Translational Medicine. 2023. https://pmc.ncbi.nlm.nih.gov/articles/PMC9835390/
+
+
+
+Article 4: ATHENA — A Deep Learning-Based AI for Functional Prediction of Genomic Mutations and Synergistic Vulnerabilities in Prostate Cancer
+
+
+
+Objective
+
+The study introduced ATHENA, a deep-learning framework designed to investigate the functional effects of genomic mutations in prostate cancer. Its broader objective was to identify mutations and combinations of mutations that may contribute to disease progression, treatment resistance, and potential therapeutic vulnerabilities.
+
+Dataset and Inputs
+
+The framework examines genomic mutation information alongside additional molecular evidence, including DNA- and RNA-related information. Rather than treating each mutation as an isolated feature, the approach investigates relationships between mutations and their possible biological effects in prostate cancer.
+
+Methods
+
+ATHENA uses an attention-based deep-learning approach to investigate complex relationships among genomic features. The researchers also describe interpretability methods, including SHAP, to investigate which features contribute to model predictions. This approach aims to provide insight into the potential functional importance of individual mutations and mutation combinations.
+
+Main Findings
+
+The work presents a framework for investigating mutation function and interactions in prostate cancer. It suggests that considering relationships between genomic alterations may provide information that is not captured by examining individual mutations alone. However, the reported findings should be interpreted cautiously because the work was initially published as a preprint and requires assessment of its peer-review status and independent validation.
+
+Relevance to Our Project
+
+This paper is relevant to our mutation-based analysis because it illustrates how genomic alterations can be investigated using machine learning. It also raises the possibility that interactions among genomic features may be informative. Our project can test a simpler, more directly interpretable question first: whether mutation-only, CNA-only, or combined features best distinguish Stage 1–3 from Stage 4 in our selected cohort.
+
+Limitation
+
+The study focuses on mutation function, interactions, and potential therapeutic vulnerabilities rather than the exact stage-classification task proposed in our project. Its deep-learning architecture may also be more complex than necessary for a small or moderately sized dataset. In addition, preprint findings should not be treated as equivalent to independently peer-reviewed evidence.
+
+Reference
+
+ATHENA: A deep learning-based AI for functional prediction of genomic mutations and synergistic vulnerabilities in prostate cancer. Preprint. 2025. https://pmc.ncbi.nlm.nih.gov/articles/PMC12676378/
+
+
+
+Article 5: Artificial Intelligence Design for Race-Based Prostate Cancer Stage Classification With Multilayer Perceptron: Feature Selection Optimization Approach
+Publication: JMIR Formative Research, 2026.
+
+
+Objective
+
+The researchers aimed to develop a machine-learning model to classify prostate cancer into early stages (Stages I–II) and late stages (Stages III–IV). They also investigated whether the model could generalize across racial groups. This is particularly important because genomic and molecular datasets may contain unequal representation of different populations.
+
+Dataset and Inputs
+
+The study used DNA methylation and clinical phenotype information from The Cancer Genome Atlas Prostate Adenocarcinoma (TCGA-PRAD) dataset. The researchers identified methylation features associated with cancer stage and developed their main model using a majority-White patient cohort. They subsequently examined how the model performed in other racial groups.
+
+Methods
+
+The researchers used differentially methylated position analysis to identify relevant DNA methylation sites and recursive feature elimination to select a smaller set of features. These features were used to train a multilayer perceptron (MLP) classifier. SHAP and LIME were applied to interpret the model's predictions and investigate the contribution of individual features.
+
+Main Findings
+
+The best-performing model achieved 95% accuracy and an area under the receiver operating characteristic curve (AUC) of up to 0.99 in the majority-White cohort using 90 selected features. However, performance declined substantially when the model was applied to racial minority groups. These findings highlight that strong performance in one population does not necessarily guarantee reliable predictions in another.
+
+Relevance to Our Project
+
+This paper is especially relevant because it directly investigates prostate cancer stage classification using machine learning. It provides an example of feature selection, model evaluation, and interpretation. It also demonstrates the importance of checking generalizability rather than relying only on high accuracy in the primary dataset.
+
+Limitation
+
+The study used DNA methylation rather than somatic mutations or CNAs. It classified Stages I–II versus Stages III–IV, whereas our project proposes Stages 1–3 versus Stage 4. Its results therefore cannot directly establish the performance expected from our model. The observed reduction in performance across racial groups also emphasizes the need to evaluate the representativeness and limitations of our own cohort.
+
+Reference
+
+Mulia A, Agustriawan D, Overbeek M, Widjaja M, Kurniawan V, Syechlo J, Ahmad MI, Sathipati SY, Kurubanjerdjit N. Artificial Intelligence Design for Race-Based Prostate Cancer Stage Classification With Multilayer Perceptron: Feature Selection Optimization Approach. JMIR Formative Research. 2026;10. https://doi.org/10.2196/82587
