@@ -1,0 +1,33 @@
+PASS: All clinical samples unique
+PASS: One selected sample per patient
+PASS: Master IDs unique
+PASS: Master sample IDs match manifest
+PASS: Mutation samples contained in manifest
+PASS: CNA samples match manifest
+PASS: Panel samples match manifest
+PASS: No duplicate CNA sample-gene pairs
+PASS: Panel sample IDs unique
+PASS: Stage mapping valid
+PASS: Panel assignments match clinical
+PASS: Master patient/sample pairs valid
+
+DATA SUMMARY
+Raw patients: 2257 Raw samples: 2260
+Eligible: 1967 Stage distribution: {0: 943, 1: 1024}
+Mutation rows: 9651 Mutation-positive-row samples: 1853 No mutation rows: 114
+CNA rows: 1064147 CNA genes: 541 CNA missing: 0
+Unexpected CNA values: {-1.5: 174}
+Panel distribution: {'IMPACT468': 1265, 'IMPACT410': 425, 'IMPACT505': 146, 'IMPACT341': 131}
+Sample type vs stage:
+ stage_binary        0    1
+SAMPLE_TYPE               
+Local Recurrence    0    2
+Metastasis        349  378
+Primary           594  643
+Unknown             0    1
+Clinical missingness:
+ TUMOR_PURITY    13
+MSI_SCORE        9
+MSI_TYPE         9
+Compact master dimensions: (1967, 44)
+IMPORTANT: QC does not validate stage timing or gene-level panel coverage.
