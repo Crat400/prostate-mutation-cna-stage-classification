@@ -222,6 +222,7 @@ data/*.csv
 data/*.tsv
 data/*.txt
 data/raw/
+data/processed/
 
 # Saved models
 *.pkl
