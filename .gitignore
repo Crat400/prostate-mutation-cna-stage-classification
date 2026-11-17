@@ -223,6 +223,7 @@ data/*.tsv
 data/*.txt
 data/raw/
 data/processed/
+evaluation_results.zip
 
 # Saved models
 *.pkl
