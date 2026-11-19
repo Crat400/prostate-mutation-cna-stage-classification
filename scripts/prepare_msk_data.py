@@ -131,13 +131,13 @@ def process(study: Path, out: Path) -> None:
 def main() -> None:
     p=argparse.ArgumentParser(description=__doc__)
     source=p.add_mutually_exclusive_group(required=True)
-    source.add_argument('--archive',type=Path,help='Downloaded prostate_msk_2024.tar.gz')
+    source.add_argument('--archive',type=Path,help='Downloaded prostate_msk_2024.tar or .tar.gz')
     source.add_argument('--study-dir',type=Path,help='Extracted prostate_msk_2024 folder')
     p.add_argument('--output-dir',type=Path,required=True)
     a=p.parse_args()
     if a.archive:
         with tempfile.TemporaryDirectory(prefix='exsu500_msk_') as tmp:
-            with tarfile.open(a.archive.expanduser(),'r:gz') as tar:
+            with tarfile.open(a.archive.expanduser(),'r:*') as tar:
                 # Avoid extracting unsafe paths or links.
                 for m in tar.getmembers():
                     target=Path(m.name)
