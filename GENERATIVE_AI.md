@@ -1,0 +1,3 @@
+# Use of Generative AI
+
+OpenAI ChatGPT (GPT-6) assisted with Python code drafting and debugging, notebook organization, preparation of reproducibility documentation, model evaluation workflow suggestions, manuscript language editing, and formatting support. Code and methodological suggestions were reviewed by the student authors. The team is responsible for checking data handling, running the code on the original datasets, verifying model outputs and citations, interpreting results, and approving all submitted work. No model-generated statements should were treated as experimental evidence without independent verification.
