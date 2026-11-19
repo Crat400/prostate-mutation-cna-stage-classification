@@ -1,6 +1,13 @@
-pandas
-numpy
-scikit-learn
-matplotlib
-jupyter
-joblib
+# Reference analysis environment: package versions recorded in the held-out evaluation metadata.
+# Python 3.12.15
+numpy==2.5.3
+pandas==3.0.6
+scikit-learn==1.9.1
+joblib==1.6.0
+# Exact versions of these notebook/plotting dependencies were not recorded.
+# Before final submission, generate a fully pinned lockfile on the successful local environment.
+matplotlib>=3.8,<4
+ipython>=8,<11
+jupyterlab>=4,<5
+ipykernel>=6,<8
+nbconvert>=7,<9
