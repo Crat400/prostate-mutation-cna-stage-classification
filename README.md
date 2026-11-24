@@ -130,6 +130,4 @@ Please cite the primary MSK 2024 dataset publication and cBioPortal when reusing
 The project code is provided under the [MIT License](LICENSE). The source dataset is **not redistributed**; its original attribution and use conditions still apply.
 
 
-## Interface (optional bonus)
-
-A public interface link will be added here only after the deployed application has been checked to use the trained model, handle malformed input, display the permanent prototype notice, and remain available through May 1, 2027. The public GitHub source alone does not establish interface eligibility.
+## Interface
