@@ -3,7 +3,6 @@ data/raw/
 data/processed/
 
 # Trained models and serialized artifacts
-*.joblib
 *.pkl
 *.pickle
 
