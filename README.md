@@ -130,4 +130,20 @@ Please cite the primary MSK 2024 dataset publication and cBioPortal when reusing
 The project code is provided under the [MIT License](LICENSE). The source dataset is **not redistributed**; its original attribution and use conditions still apply.
 
 
-## Interface
+## Interactive Web Application
+
+The trained Combined Random Forest model is available through a
+publicly accessible Streamlit interface.
+
+**Live application:** [Prostate Cancer Genomic Classifier](https://prostate-genomic-classifier-exsu500.streamlit.app/)
+
+The interface supports:
+- Interactive synthetic genomic examples
+- CSV upload with input validation
+- Stage classification and predicted probabilities
+- Genomic feature importance visualization
+- Model performance metrics and limitations
+
+**Disclaimer:** This application is a course prototype for research
+and educational purposes only. It is not a medical device and must
+not be used for clinical decisions.
