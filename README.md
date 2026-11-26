@@ -8,7 +8,7 @@
 
 Can somatic mutations and copy-number alterations (CNAs), alone or combined, distinguish highest recorded Stage IV prostate cancer from Stages I-III? This project compares two classical supervised-learning methods-regularized logistic regression (LR) and random forest (RF) across three genomic feature representations, for six model configurations.
 
-The label, `STAGE_HIGHEST_RECORDED`, is the highest stage in the registry and may not be the stage when the sequenced specimen was collected. This is a **retrospective classification exercise**, not prospective prediction of metastasis or clinical outcomes.
+The label, `STAGE_HIGHEST_RECORDED`, is the highest stage in the registry and may not be the stage when the sequenced specimen was collected. This is a retrospective classification exercise, not prospective prediction of metastasis or clinical outcomes.
 
 ## Dataset
 
