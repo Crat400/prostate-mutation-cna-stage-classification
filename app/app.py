@@ -20,7 +20,7 @@ st.error(
 
 st.write(
     "This application uses a trained Random Forest model to "
-    "classify prostate cancer as Stage I–III or Stage IV "
+    "classify prostate cancer as Stage I-III or Stage IV "
     "based on somatic mutations and copy-number alterations."
 )
 
