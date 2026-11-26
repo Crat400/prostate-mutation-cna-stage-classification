@@ -6,18 +6,18 @@
 
 ## Overview
 
-Can somatic mutations and copy-number alterations (CNAs), alone or combined, distinguish **highest recorded Stage IV** prostate cancer from **Stages I-III**? This project compares two classical supervised-learning methods-regularized logistic regression (LR) and random forest (RF) across three genomic feature representations, for six model configurations.
+Can somatic mutations and copy-number alterations (CNAs), alone or combined, distinguish highest recorded Stage IV prostate cancer from Stages I-III? This project compares two classical supervised-learning methods-regularized logistic regression (LR) and random forest (RF) across three genomic feature representations, for six model configurations.
 
-The label, `STAGE_HIGHEST_RECORDED`, is the **highest stage in the registry** and may not be the stage when the sequenced specimen was collected. This is a **retrospective classification exercise**, not prospective prediction of metastasis or clinical outcomes.
+The label, `STAGE_HIGHEST_RECORDED`, is the highest stage in the registry and may not be the stage when the sequenced specimen was collected. This is a **retrospective classification exercise**, not prospective prediction of metastasis or clinical outcomes.
 
 ## Dataset
 
-The project uses the open **Prostate Cancer (MSK, Clinical Cancer Research 2024)** cohort from [cBioPortal](https://www.cbioportal.org/study/summary?id=prostate_msk_2024) (study ID `prostate_msk_2024`). Raw patient-level data and derived matrices are deliberately excluded from this public repository.
+The project uses the open Prostate Cancer (MSK, Clinical Cancer Research 2024) cohort from [cBioPortal](https://www.cbioportal.org/study/summary?id=prostate_msk_2024) (study ID `prostate_msk_2024`). Raw patient-level data and derived matrices are deliberately excluded from this public repository.
 
 | Cohort / representation | Count |
 |:--|--:|
 | Source clinical patients / samples | 2,257 / 2,260 |
-| Eligible patients, one specimen per patient | **1,967** |
+| Eligible patients, one specimen per patient | 1,967 |
 | Stages I–III (`0`) | 943 (47.9%) |
 | Stage IV (`1`) | 1,024 (52.1%) |
 | Reported mutation records | 9,651 |
@@ -26,7 +26,7 @@ The project uses the open **Prostate Cancer (MSK, Clinical Cancer Research 2024)
 | Shared-panel CNA features | 340 |
 | Combined features | 681 |
 
-Patient-level stratified splitting uses a fixed seed (`42`) with **1,376 train, 295 validation, and 296 test patients**. All six configurations use the same split. After choosing hyperparameters using validation performance, finalized models are refitted on train + validation (1,671 patients); the held-out 296 patients are evaluated once.
+Patient-level stratified splitting uses a fixed seed (`42`) with 1,376 train, 295 validation, and 296 test patients. All six configurations use the same split. After choosing hyperparameters using validation performance, finalized models are refitted on train + validation (1,671 patients); the held-out 296 patients are evaluated once.
 
 ## Methods
 
@@ -36,13 +36,13 @@ Patient-level stratified splitting uses a fixed seed (`42`) with **1,376 train, 
 | CNA | 340 discrete copy-number calls | LR, RF |
 | Combined | Concatenation of 341 mutation and 340 CNA indicators/calls | LR, RF |
 
-To minimize unequal assay coverage, features are restricted to the **intersection of genes sequenced by IMPACT341, IMPACT410, IMPACT468 and IMPACT505**. Mutation records not matching their recorded panel definitions are excluded from the corresponding features; no patients are removed for this reason. For a covered gene, an unreported mutation is encoded as `0`; a recorded mutation is `1`. Original CNA values are retained, including the unusual `-1.5` category. Train-constant features are removed using `VarianceThreshold`; LR additionally uses `StandardScaler`. Both transformations are fitted on training data inside scikit-learn pipelines.
+To minimize unequal assay coverage, features are restricted to the intersection of genes sequenced by IMPACT341, IMPACT410, IMPACT468 and IMPACT505. Mutation records not matching their recorded panel definitions are excluded from the corresponding features; no patients are removed for this reason. For a covered gene, an unreported mutation is encoded as `0`; a recorded mutation is `1`. Original CNA values are retained, including the unusual `-1.5` category. Train-constant features are removed using `VarianceThreshold`; LR additionally uses `StandardScaler`. Both transformations are fitted on training data inside scikit-learn pipelines.
 
 LR tuning considers `C ∈ {0.01, 0.1, 1, 10}`; RF tuning compares maximum depth and leaf-size choices. Validation AUROC is used for selection, with average precision (AP) as a secondary metric. The majority-class classifier serves as a trivial reference. Final test analysis also includes AUROC confidence intervals (1,000 patient-level bootstrap resamples), accuracy, sensitivity, specificity, F1, confusion matrices, ROC/PR curves, calibration, exploratory subgroup performance and paired comparisons.
 
 ## Held-out results
 
-**These are test-set results**, reproduced from the exported `04_model_evaluation.ipynb` evaluation tables, not from the synthetic model-training dry run.
+These are test-set results, reproduced from the exported `04_model_evaluation.ipynb` evaluation tables, not from the synthetic model-training dry run.
 
 | Feature set | Model | Test AUROC | Average precision (AP) |
 |:--|:--|--:|--:|
@@ -54,22 +54,19 @@ LR tuning considers `C ∈ {0.01, 0.1, 1, 10}`; RF tuning compares maximum depth
 | CNA | Logistic regression | 0.513 | 0.534 |
 | Majority class (all Stage IV) | Baseline | 0.500 | 0.520 |
 
-The validation-selected **Combined RF** achieved an AUROC of **0.660 (95% bootstrap CI 0.600–0.719)**, accuracy **63.5%**, sensitivity **70.1%**, specificity **56.3%**, and AP **0.664**. The majority-class baseline accuracy was **52.0%**.
+The validation-selected Combined RF achieved an AUROC of 0.660 (95% bootstrap CI 0.600–0.719), accuracy 63.5%, sensitivity 70.1%, specificity 56.3%, and AP 0.664. The majority-class baseline accuracy was 52.0%.
 
 ![Held-out AUROC comparison with confidence intervals](figures/test_auroc_comparison.png)
 
-Combining mutations with CNAs improved AUROC relative to CNA-only RF (difference **+0.108**), but the improvement relative to mutation-only RF (**+0.012**, bootstrap CI includes zero) was **inconclusive**. These are exploratory paired comparisons, not multiplicity-adjusted hypothesis tests. The model shows **modest discrimination**, rather than clinical-grade performance.
+Combining mutations with CNAs improved AUROC relative to CNA-only RF (difference +0.108), but the improvement relative to mutation-only RF (+0.012, bootstrap CI includes zero) was inconclusive. These are exploratory paired comparisons, not multiplicity-adjusted hypothesis tests. The model shows modest discrimination, rather than clinical-grade performance.
 
 ![Global feature importance for the combined random forest](figures/combined_rf_feature_importance.png)
 
 ## Reproduce the workflow
 
-**Professor/TA quick start:** See **[How to reproduce and grade the project](docs/INSTRUCTIONS.md)** for exact commands, expected cohort sizes, expected saved files, and reference results. No preprocessed genomic data or patient-level outputs are required from the authors.
+Professor/TA quick start: See [How to reproduce and grade the project](docs/INSTRUCTIONS.md) for exact commands, expected cohort sizes, expected saved files, and reference results. 
 
-**Best-model details:** See the [Combined Random Forest model card](MODEL_CARD.md). [CRediT contribution statement](CONTRIBUTIONS.md) and [generative AI disclosure](GENERATIVE_AI.md) are maintained separately for final submission.
-
-
-**Prerequisites:** Python 3.12, Git and Jupyter. Run commands from the repository root.
+Prerequisites: Python 3.12, Git and Jupyter. Run commands from the repository root.
 
 ```powershell
 conda create -n exsu500 python=3.12 -y
@@ -87,7 +84,7 @@ python scripts/build_msk_masters.py --input-dir data/processed
 python scripts/validate_msk_data.py --input-dir data/processed
 ```
 
-4. Open Jupyter from the repository root (`python -m jupyter lab`) and run the four notebooks **in numerical order** (see below). Paths resolve from either the repository root or `notebooks/`.
+4. Open Jupyter from the repository root (`python -m jupyter lab`) and run the four notebooks in numerical order (see below). Paths resolve from either the repository root or `notebooks/`.
 
 | Notebook | Purpose |
 |:--|:--|
@@ -102,11 +99,11 @@ See [Reproducibility notes](docs/INSTRUCTIONS.md) for generated files, assumptio
 
 ## Limitations and responsible use
 
-- `STAGE_HIGHEST_RECORDED` is not necessarily stage at biopsy. In the selected data, **349 Stage I–III-labelled patients have specimens designated `Metastasis`**, indicating annotation/timing ambiguity.
+- `STAGE_HIGHEST_RECORDED` is not necessarily stage at biopsy. In the selected data, 349 Stage I–III-labelled patients have specimens designated `Metastasis`, indicating annotation/timing ambiguity.
 - The cohort is from one data source and has not been externally validated. Genomic feature sparsity and panel/batch effects may limit generalization.
 - Excluding 211 unmatched mutation records avoids unsupported gene-coverage assumptions, but some discrepancies may reflect gene-symbol aliases rather than erroneous calls.
 - An unusual source CNA value (`-1.5`) is preserved; its precise biological meaning requires verification.
-- RF impurity-based feature importance is **global** and does not establish causal effects or explain an individual's prediction. Predicted probabilities are not clinically calibrated confidence estimates.
+- RF impurity-based feature importance is global and does not establish causal effects or explain an individual's prediction. Predicted probabilities are not clinically calibrated confidence estimates.
 
 ## Team and contributions
 
@@ -127,7 +124,7 @@ OpenAI ChatGPT (GPT-6) assisted with data evaluation, code development and troub
 
 Please cite the primary MSK 2024 dataset publication and cBioPortal when reusing this work. Relevant methodological studies include Elmarakeby *et al.* (Nature, 2021), Lenis *et al.* (Clinical Cancer Research, 2024), and Kapoor and Narayanan (Patterns, 2023). See the course report for the full bibliography.
 
-The project code is provided under the [MIT License](LICENSE). The source dataset is **not redistributed**; its original attribution and use conditions still apply.
+The project code is provided under the [MIT License](LICENSE). The source dataset is not redistributed; its original attribution and use conditions still apply.
 
 
 ## Interactive Web Application
